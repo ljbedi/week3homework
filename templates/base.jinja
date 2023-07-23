@@ -5,36 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>{{ title }}</title>
-    <style>
-      html * {
-        font-family:'Courier New', Courier, monospace;
-        background-color: rgb(242, 221, 196);
-
-    }
-    </style>
+    
 </head>
 <body>
-<div>
-    <div class = "nav">
-            <ul>
-                <li>
-                    <a href ="/">EVENTS</a>
-                    <a href = "/">ABOUT</a>
-                    <a href = "/">JOIN</a>
-                    <a href = "/">CALENDAR</a>
-                    <a href = "/">FAQ</a>
-                    <a href = "/">CONTACT US</a>
-                    <a href = "/">CAREERS</a>
-                    <a href = "/">NEWS</a>
-                </li>
-            </ul>
-        </div>
-    
-        </body>
-    </div>
-    <hr>
+    <nav>
+        <ul>
+            <li class="navlink"><a href="/books">Home</a></li>
+        </ul>
+    </nav>
+    <hr/>
     {% block content %}
-    
-    {% endblock content  %}
+    {% endblock content %}
 </body>
 </html>

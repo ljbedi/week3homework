@@ -1,26 +1,50 @@
-{% extends 'base.jinja' %} {% block content %}
-    <h1>{{ title }}</h1><hr>
+{% extends 'base.jinja' %}
+{% block content %}
+    <header>
+    <h1 class="title">{{ title }}</h1>
+    </header>
 
-    <form action="/books" method="post">
-        <label for ="title">Book Title</label>
-        <input type ="text" name="title" id="title"/>
-        <label for="author">Author</label>
-        <input type ="author" name="author"/>
-        <label for ="genre">Genre</label>
-        <input type="text" name="genre">
-        <input type="submit" value="Add Book"/>
-        </form>
-        <form action="/books/delete/<title>" method="post">
-        <input type="submit" value="Remove Book"/>
-        </form>
-        
+    <div class = "inputs">
+        <section class="add-book">
+            <form action="/books" method="post">
+                <label for="book">Book</label>
+                <input type="text" name="title" id="title">
+                <label for="author">Author</label>
+                <input type="text" name="author" id="author">
+                <label for="genre">Genre</label>
+                <input type="text" name="genre" id="genre">
+                <button class = "add">
+                <input type="submit" value="Add Book"></button>
+            </form>
+        </section>
+    </div>
 
-    <ul>
-    {% for book in book_list %}
-        <li><b>{{ book.title }}</b>
-            {{ book.author}}
-            {{ book.genre}} 
-            </li>
-    {% endfor %}
+    <ul class="books">
+        {% for book in book_list %}
+        <li>{{ book.title }} - {{ book.author }}, {{ book.genre }}</li>    
+        {% endfor %}
     </ul>
+    
+
+    <hr class="book-container">
+        {% for book in book_list %}
+        <div class="book">
+            <h2>{{ book.title }}</h2>
+            <h3>{{ book.author }}</h3>
+            <h4>{{ book.genre }}</h4>
+            <h5>Availabilty:
+            {% if book.checked_out == true %}
+                Unavailable
+            {% else %}
+                Available
+            {% endif %}
+
+            </h5>
+            <form class="form-inline" action="/books/delete/{{ book.title }}" method="POST">
+                <input type="submit" value="Delete book from system">
+            </form>
+        </div>
+        <hr/>
+        {% endfor %}
+    </div>
 {% endblock content %}

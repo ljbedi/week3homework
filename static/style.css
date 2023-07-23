@@ -1,0 +1,26 @@
+
+html {
+    font-family: sans-serif;
+    background-color: rgb(202, 220, 233);
+
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    color:navy;
+}
+
+.inputs {
+    display: flex;
+    justify-content: center;
+    background-color: azure;
+    padding-block: 75px;
+    margin: 75px;
+}
+
+.add {
+    border-radius: 20px;
+    color: darkcyan;
+}
+
